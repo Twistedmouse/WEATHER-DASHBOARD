@@ -1,0 +1,57 @@
+body{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    display: grid;
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+    grid-template-rows: 100px 1fr 50px 1fr 1fr 1fr;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+h1{
+    grid-column: 3 / 8;
+}
+
+form{
+    grid-column: 1 / 2;
+    grid-row: 2 / 2;
+}
+
+.searchResults{
+    border: solid black 2px;
+    grid-column: 1 / 2;
+    grid-row: 3 / 6;
+}
+
+main{
+    border: solid black 2px;
+    grid-column: 3 / 6;
+    grid-row: 2 / 3;
+
+}
+
+.forecastBox{
+    border: solid black 2px;
+    grid-column: 3 / 8;
+    grid-row: 4 / 6;
+    padding: 15px;
+    display: flex;
+}
+
+#fiveDayHeader{
+    grid-column: 3 / 8;
+    grid-row: 3 / 4;
+}
+
+section{
+    border: solid black 2px;
+    grid-column: 3 / 8;
+    grid-row: 4 / 6;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+

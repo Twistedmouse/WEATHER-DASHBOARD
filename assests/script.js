@@ -20,3 +20,22 @@ WHEN I click on a city in the search history *TODO
 THEN I am again presented with current and future conditions for that city
 Pseudo:
 */
+
+let learning = "";
+function retrieveOw() {
+    fetch('https://api.openweathermap.org/data/2.5/weather?q=perth&units=metric&appid=ae210a10799a0c6d30e51f1defe85556')
+    .then(function (response){
+        return response.json();
+    })
+    .then(function (data){
+        console.log(data);
+        learning = data;
+        //dosnt give uv . need to do a fetch func inside this fetch func. to get the uv 
+    })
+}retrieveOw()
+
+
+
+
+
+"https://api.openweathermap.org/data/2.5/weather?"+"this will be a variable"+"&units=metric&appid=ae210a10799a0c6d30e51f1defe85556"

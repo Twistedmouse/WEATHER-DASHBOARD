@@ -5,11 +5,86 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assests/style.css"/>
-    https://api.openweathermap.org/data/2.5/onecall?
-    lat={-32.329672436396415}&lon={115.75969799023187}&exclude={part}&appid={ae210a10799a0c6d30e51f1defe85556}
     <title>Document</title>
 </head>
 <body>
+        <h1>WEATHER DASHBOARD</h1> 
+            <!-- search bar -->
+            <form >
+                <h3>Search Location: </h3>
+                <input type="text" placeholder="Type in desired city.." name="search">
+                <button type="submit"><i class="fa fa-search"></i>Go!</button>
+              </form>
+
+            <div class="searchResults">
+                <!-- search history/ results -->
+                <ul>
+                    <li>TEMP</li>
+                    <li>TEMP</li>
+                    <li>TEMP</li>
+                    <li>TEMP</li>
+                    <li>TEMP</li>
+                    <li>TEMP</li>
+                </ul>
+            </div>
+
+    
+        
+        <main>
+        <h2 id="currentLocation"></h2>
+            <img class="weatherImg" src=""> 
+            <p id="temp">temp</p>     <!-- temp -->
+            <p id="wind">temp</p>     <!-- wind -->
+            <p id="humidity">temp</p> <!-- humidity -->
+            <p id="uv">temp</p>       <!-- uv index -->
+        </main>
+        
+    <h2 id= "fiveDayHeader">5-Day Forecast: </h2>
+        <div class="forecastBox">
+            <!-- 5 day forecast -->
+            <section id="dayOne">
+                <p class="date">temp</p> 
+                <img class="weatherImg" src="">   
+                <p class="tempFive">temp</p>     
+                <p class="windFive">temp</p> 
+                <p class="humidityFive">temp</p>
+            </section>
+
+            <section id="dayTwo">
+                <p class="date">temp</p> 
+                <img class="weatherImg" src="">   
+                <p class="tempFive">temp</p>     
+                <p class="windFive">temp</p> 
+                <p class="humidityFive">temp</p>
+            </section>
+
+            <section id="dayThree">
+                <p class="date">temp</p> 
+                <img class="weatherImg" src="">   
+                <p class="tempFive">temp</p>     
+                <p class="windFive">temp</p> 
+                <p class="humidityFive">temp</p>
+            </section>
+
+            <section id="dayFour">
+                <p class="date">temp</p> 
+                <img class="weatherImg" src="">   
+                <p class="tempFive">temp</p>     
+                <p class="windFive">temp</p> 
+                <p class="humidityFive">temp</p>
+            </section>
+
+            <section id="dayFive">
+                <p class="date">temp</p> 
+                <img class="weatherImg" src="">   
+                <p class="tempFive">temp</p>     
+                <p class="windFive">temp</p> 
+                <p class="humidityFive">temp</p>
+            </section>
+            
+            
+        </div>
+
     
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
