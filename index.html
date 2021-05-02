@@ -12,30 +12,30 @@
             <!-- search bar -->
             <form >
                 <h3>Search Location: </h3>
-                <input type="text" placeholder="Type in desired city.." name="search">
-                <button type="submit"><i class="fa fa-search"></i>Go!</button>
+                <input id="autocomplete" type="text" placeholder="Type in desired city..">
+                <button id="searchBtn" type="submit" ><i class="fa fa-search"></i>Go!</button>
               </form>
 
             <div class="searchResults">
                 <!-- search history/ results -->
                 <ul>
-                    <li>TEMP</li>
-                    <li>TEMP</li>
-                    <li>TEMP</li>
-                    <li>TEMP</li>
-                    <li>TEMP</li>
-                    <li>TEMP</li>
+                    <li>TODO</li>
+                    <li>TODO</li>
+                    <li>TODO</li>
+                    <li>TODO</li>
+                    <li>TODO</li>
+                    <li>TODO</li>
                 </ul>
             </div>
 
 
         <main>
-        <h2 id="currentLocation">TEMP</h2>
+        <h2 id="currentLocation">TODO</h2>
             <img class="weatherImg" src=""> 
-            <p id="temp">temp</p>     <!-- temp -->
-            <p id="wind">temp</p>     <!-- wind -->
-            <p id="humidity">temp</p> <!-- humidity -->
-            <p id="uv">temp</p>       <!-- uv index -->
+            <p id="temp">TODO</p>     <!-- temp -->
+            <p id="wind">TODO</p>     <!-- wind -->
+            <p id="humidity">TODO</p> <!-- humidity -->
+            <p id="uv">TODO</p>       <!-- uv index -->
         </main>
         
         
@@ -43,50 +43,52 @@
         <div class="forecastBox">
             <!-- 5 day forecast -->
             <section id="dayOne">
-                <p class="date">temp</p> 
+                <p class="date">TODO</p> 
                 <img class="weatherImg" src="">   
-                <p class="tempFive">temp</p>     
-                <p class="windFive">temp</p> 
-                <p class="humidityFive">temp</p>
+                <p class="tempFive">TODO</p>     
+                <p class="windFive">TODO</p> 
+                <p class="humidityFive">TODO</p>
             </section>
 
             <section id="dayTwo">
-                <p class="date">temp</p> 
+                <p class="date">TODAY</p> 
                 <img class="weatherImg" src="">   
-                <p class="tempFive">temp</p>     
-                <p class="windFive">temp</p> 
-                <p class="humidityFive">temp</p>
+                <p class="tempFive">TODO</p>     
+                <p class="windFive">TODO</p> 
+                <p class="humidityFive">TODO</p>
             </section>
 
             <section id="dayThree">
-                <p class="date">temp</p> 
+                <p class="date">TODO</p> 
                 <img class="weatherImg" src="">   
-                <p class="tempFive">temp</p>     
-                <p class="windFive">temp</p> 
-                <p class="humidityFive">temp</p>
+                <p class="tempFive">TODO</p>     
+                <p class="windFive">TODO</p> 
+                <p class="humidityFive">TODO</p>
             </section>
 
             <section id="dayFour">
-                <p class="date">temp</p> 
+                <p class="date">TODO</p> 
                 <img class="weatherImg" src="">   
-                <p class="tempFive">temp</p>     
-                <p class="windFive">temp</p> 
-                <p class="humidityFive">temp</p>
+                <p class="tempFive">TODO</p>     
+                <p class="windFive">TODO</p> 
+                <p class="humidityFive">TODO</p>
             </section>
 
             <section id="dayFive">
-                <p class="date">temp</p> 
+                <p class="date">TODO</p> 
                 <img class="weatherImg" src="">   
-                <p class="tempFive">temp</p>     
-                <p class="windFive">temp</p> 
-                <p class="humidityFive">temp</p>
+                <p class="tempFive">TODO</p>     
+                <p class="windFive">TODO</p> 
+                <p class="humidityFive">TODO</p>
             </section>
             
             
         </div>
 
     
-    
+        <script async
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB--9um6iLDl4i8GW9df65UqfPtjuc-DMI&libraries=places&callback=initAutocomplete">
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./assests/script.js"></script>
