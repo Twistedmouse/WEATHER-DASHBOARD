@@ -48,11 +48,22 @@ THEN change the displayed data to the selected area /fetch that city's data
 
 "https://api.openweathermap.org/data/2.5/weather?"+"this will be a variable"+"&units=metric&appid=ae210a10799a0c6d30e51f1defe85556"
 */
+const timeDate = moment().format('MMMM Do YYYY');
+$("#currentDay").text(timeDate);
 
-const city = document.getElementById("currentLocation")
+const city = document.getElementById("currentLocation");
+const tempArea = document.getElementById("temp");
+const windArea = document.getElementById("wind");
+const humidityArea = document.getElementById("humidity");
+const searchHist = document.getElementById("searchResults");
 let searchStoreage = JSON.parse(localStorage.getItem('history')) || [];
-const btn = document.getElementById('searchBtn')
+const btn = document.getElementById('searchBtn');
 
+//function to auto load current area weather conditions
+
+
+
+//btn for the search bar
 btn.addEventListener('click', function (event) {
     event.preventDefault();
     let input = document.getElementById('autocomplete').value;
@@ -63,7 +74,12 @@ btn.addEventListener('click', function (event) {
 });
 
 //function insert text into searchResults field
+function searchHistoryField() {
+    searchHist.textContent = localStorage.getItem(searchStoreage)
+    
+}
 
+//used to find the data for the city you're in
 let learning = "";
 function retrieveOw(yourCity) {
     fetch('https://api.openweathermap.org/data/2.5/weather?q='+yourCity+'&units=metric&appid=ae210a10799a0c6d30e51f1defe85556')
@@ -73,13 +89,16 @@ function retrieveOw(yourCity) {
     .then(function (data){
         console.log(data);
         learning = data;
-        city.textContent = data.name;
-        
+        city.textContent = data.name + " (" + timeDate + ")";
+        //must add img weatherImg *TODO
+        tempArea.textContent = "Temp: " + data.main.temp + " °C"
+        windArea.textContent = "Wind: " + data.wind.speed +" MPH"
+        humidityArea.textContent = "Humidity: " + data.main.humidity + " %"
         retrieveOneCall(data.coord.lat, data.coord.lon)
         //fill for main
     })
 }
-console.log(learning)
+// console.log(learning)
 
 function retrieveOneCall(lat, lon) {
     fetch('https://api.openweathermap.org/data/2.5/onecall?lat='+lat+'&lon='+lon+'&exclude=minutely,hourly,alerts&units=metric&appid=ae210a10799a0c6d30e51f1defe85556')
@@ -92,7 +111,7 @@ function retrieveOneCall(lat, lon) {
     })
 }
 
-
+//autocomplete for search bar 
 let autocomplete;
 function initAutocomplete() {
     autocomplete = new google.maps.places.Autocomplete(
@@ -111,7 +130,7 @@ function onPlaceChanged() {
     if (!place.geometry){
         document.getElementById('autocomplete').placeholder = 'enter a place';
     } else{
-        //document.getElementById('details').innerHTML = place.name;
+        // document.getElementById('details').innerHTML = place.name;
     }
 }
 
