@@ -20,7 +20,7 @@ form{
     width: 150px;
 }
 
-.searchResults{
+#searchResults{
     border: dashed black 2px;
     grid-column: 1 / 2;
     grid-row: 3 / 6;

@@ -46,7 +46,6 @@ THEN add city to the search history section
 WHEN search history city item is clicked
 THEN change the displayed data to the selected area /fetch that city's data
 
-"https://api.openweathermap.org/data/2.5/weather?"+"this will be a variable"+"&units=metric&appid=ae210a10799a0c6d30e51f1defe85556"
 */
 const timeDate = moment().format('MMMM Do YYYY');
 $("#currentDay").text(timeDate);
@@ -56,11 +55,15 @@ const tempArea = document.getElementById("temp");
 const windArea = document.getElementById("wind");
 const humidityArea = document.getElementById("humidity");
 const searchHist = document.getElementById("searchResults");
-let searchStoreage = JSON.parse(localStorage.getItem('history')) || [];
+const uvArea = document.getElementById("uv");
+const weatherImg = document.getElementsByClassName("weatherImg");
+let searchStorage = JSON.parse(localStorage.getItem('history')) || [];
 const btn = document.getElementById('searchBtn');
 
 //function to auto load current area weather conditions
+// function onLoadFirst(data) {
 
+// }
 
 
 //btn for the search bar
@@ -69,15 +72,18 @@ btn.addEventListener('click', function (event) {
     let input = document.getElementById('autocomplete').value;
     console.log(input.split(' '))
     retrieveOw(input.split(' '))
-    searchStoreage.push(input)
-    localStorage.setItem('history', JSON.stringify(searchStoreage))
+    searchStorage.push(input)
+    localStorage.setItem('history', JSON.stringify(searchStorage))
 });
 
 //function insert text into searchResults field
 function searchHistoryField() {
-    searchHist.textContent = localStorage.getItem(searchStoreage)
-    
-}
+    searchHist.textContent = searchStorage;
+    // searchHist.foreach()
+}searchHistoryField()
+
+//make on click func that stores the inner text of the search history in the the search box 
+//make clear btn for the search history 
 
 //used to find the data for the city you're in
 let learning = "";
@@ -90,9 +96,8 @@ function retrieveOw(yourCity) {
         console.log(data);
         learning = data;
         city.textContent = data.name + " (" + timeDate + ")";
-        //must add img weatherImg *TODO
         tempArea.textContent = "Temp: " + data.main.temp + " °C"
-        windArea.textContent = "Wind: " + data.wind.speed +" MPH"
+        windArea.textContent = `Wind: ${data.wind.speed}   km/h` //this `` is the same as the line above ""
         humidityArea.textContent = "Humidity: " + data.main.humidity + " %"
         retrieveOneCall(data.coord.lat, data.coord.lon)
         //fill for main
@@ -107,7 +112,9 @@ function retrieveOneCall(lat, lon) {
     })
     .then(function (data) {
         console.log("OneCall=", data)
-        //5day uv index
+        uvArea.textContent = `UV Index: ${data.current.uvi}`
+        weatherImg.innerHTML = data.current.weather[0].icon
+        //5day for loop todo
     })
 }
 
@@ -121,14 +128,14 @@ function initAutocomplete() {
             componentRestrictions: {'country' : ['AU']},
             fields: ['place_id', 'geometry', 'name']
         });
-    autocomplete.addListener('place_changed', onPlaceChanged);
+     autocomplete.addListener('place_changed', onPlaceChanged);
 }
 
 function onPlaceChanged() {
     var place = autocomplete.getPlace();
 
     if (!place.geometry){
-        document.getElementById('autocomplete').placeholder = 'enter a place';
+        document.getElementById('autocomplete').placeholder = 'Type in desired city..';
     } else{
         // document.getElementById('details').innerHTML = place.name;
     }
