@@ -1,6 +1,6 @@
 /*GIVEN a weather dashboard with form inputs
 
-WHEN I search for a city *TODO
+WHEN I search for a city 
 THEN I am presented with current and future conditions for that city and that city is added to the search history
 Pseudo:     
 IF user types a city in the the search field 
@@ -46,6 +46,8 @@ THEN add city to the search history section
 WHEN search history city item is clicked
 THEN change the displayed data to the selected area /fetch that city's data
 
+WHEN i click the clear history button - TODO
+THEN clear the local storage
 */
 const timeDate = moment().format('MMMM Do YYYY');
 $("#currentDay").text(timeDate);
@@ -59,12 +61,6 @@ const uvArea = document.getElementById("uv");
 const weatherImg = document.getElementsByClassName("weatherImg");
 let searchStorage = JSON.parse(localStorage.getItem('history')) || [];
 const btn = document.getElementById('searchBtn');
-
-//function to auto load current area weather conditions
-// function onLoadFirst(data) {
-
-// }
-
 
 //btn for the search bar
 btn.addEventListener('click', function (event) {
@@ -84,12 +80,21 @@ function searchHistoryField() {
         let createBtn = document.createElement("button");
         createBtn.setAttribute("type", "submit")
         createBtn.setAttribute("class", "historyButton")
-        createBtn.textContent = historyBtns[i];
+        createBtn.textContent = historyBtns;
         searchHist.appendChild(createBtn)
+        // console.log(historyBtns)
     }
-}
-
-//make on click func that stores the inner text of the search history in the the search box 
+}searchHistoryField()
+// search history buttons
+document.querySelectorAll(".historyButton").forEach(function(item) {
+    item.addEventListener("click", function(event) {
+        let cityTextContent = event.currentTarget.textContent;
+        let yourCity = cityTextContent.split(" ");
+        retrieveOw(yourCity) 
+        console.log(yourCity)
+    
+})})
+ 
 //make clear btn for the search history 
 
 //used to find the data for the city you're in
