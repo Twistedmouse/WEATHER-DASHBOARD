@@ -49,8 +49,7 @@ THEN change the displayed data to the selected area /fetch that city's data
 WHEN i click the clear history button - TODO
 THEN clear the local storage
 */
-const timeDate = moment().format('MMMM Do YYYY');
-$("#currentDay").text(timeDate);
+const timeDate = moment().format('dddd, MMMM Do YYYY');
 
 const city = document.getElementById("currentLocation");
 const tempArea = document.getElementById("temp");
@@ -139,7 +138,7 @@ function retrieveOneCall(lat, lon) {
 
 
 
-
+//google maps api:
 //autocomplete for search bar 
 let autocomplete;
 function initAutocomplete() {
