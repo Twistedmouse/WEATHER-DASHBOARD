@@ -83,7 +83,8 @@ function searchHistoryField() {
         searchHist.appendChild(createBtn)
         // console.log(historyBtns)
     }
-}searchHistoryField()
+}
+ searchHistoryField()
 // search history buttons
 document.querySelectorAll(".historyButton").forEach(function(item) {
     item.addEventListener("click", function(event) {
@@ -123,11 +124,23 @@ function retrieveOneCall(lat, lon) {
     })
     .then(function (data) {
         console.log("OneCall=", data)
-        uvArea.textContent += data.current.uvi // += adds onto the existing textContent instead f overriding it 
+        uvArea.textContent += data.current.uvi // += adds onto the existing textContent instead of overriding it 
         weatherImg.innerHTML = data.current.weather[0].icon
-        //5day for loop *TODO
+
     })
 }
+//5day for loop *TODO
+    //      for (let i = 1; i < 6; i++) {
+    //         const fiveDayMoment = document.getElementsByClassName("date");
+    //         const fiveDayImg = document.getElementsByClassName("weatherImg");
+    //         const fiveDayTemp = document.getElementsByClassName("tempFive");
+    //         const fiveDayWind = document.getElementsByClassName("windFive");
+    //         const FiveDayHumidity = document.getElementsByClassName("humidityFive");
+
+    //         fiveDayMoment.textContent = data.name + " (" + timeDate + ")";
+    //         console.log(fiveDayMoment)
+    //     }
+
 
 //function for change uv index colour a bunch of if else statements that change the class 
 //which has a css property with different background colors                                *TODO
