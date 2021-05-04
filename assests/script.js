@@ -74,13 +74,20 @@ btn.addEventListener('click', function (event) {
     retrieveOw(input.split(' '))
     searchStorage.push(input)
     localStorage.setItem('history', JSON.stringify(searchStorage))
+    searchHistoryField()
 });
 
 //function insert text into searchResults field
 function searchHistoryField() {
-    searchHist.textContent = searchStorage;
-    // searchHist.foreach()
-}searchHistoryField()
+    for (let i = 0; i < searchStorage.length; i++) {
+        let historyBtns = searchStorage[i];
+        let createBtn = document.createElement("button");
+        createBtn.setAttribute("type", "submit")
+        createBtn.setAttribute("class", "historyButton")
+        createBtn.textContent = historyBtns[i];
+        searchHist.appendChild(createBtn)
+    }
+}
 
 //make on click func that stores the inner text of the search history in the the search box 
 //make clear btn for the search history 
@@ -112,11 +119,21 @@ function retrieveOneCall(lat, lon) {
     })
     .then(function (data) {
         console.log("OneCall=", data)
-        uvArea.textContent = `UV Index: ${data.current.uvi}`
+        uvArea.textContent += data.current.uvi // += adds onto the existing textContent instead f overriding it 
         weatherImg.innerHTML = data.current.weather[0].icon
-        //5day for loop todo
+        //5day for loop *TODO
     })
 }
+
+//function for change uv index colour a bunch of if else statements that change the class 
+//which has a css property with different background colors                                *TODO
+
+
+
+
+
+
+
 
 //autocomplete for search bar 
 let autocomplete;
