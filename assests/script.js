@@ -69,11 +69,19 @@ btn.addEventListener('click', function (event) {
     retrieveOw(input.split(' '))
     searchStorage.push(input)
     localStorage.setItem('history', JSON.stringify(searchStorage))
-    searchHistoryField()
+    searchHistBtn(input)
 });
 
+function searchHistBtn(input) { 
+    let createBtn = document.createElement("button");
+    createBtn.setAttribute("type", "submit")
+        createBtn.setAttribute("class", "historyButton")
+        createBtn.textContent = input;
+        searchHist.appendChild(createBtn)
+}//TODO run debugger and fine out why theres ab-normallity 
+
 //function insert text into searchResults field
-function searchHistoryField(event) {
+function searchHistoryField(event) { 
     for (let i = 0; i < searchStorage.length; i++) {
         let historyBtns = searchStorage[i];
         let createBtn = document.createElement("button");
@@ -117,10 +125,19 @@ function retrieveOw(yourCity) {
         learning = data;
         city.textContent = data.name + " (" + timeDate + ")";
         tempArea.textContent = "Temp: " + data.main.temp + " °C"
-        windArea.textContent = `Wind: ${data.wind.speed}   km/h` //this `` is the same as the line above ""
+        windArea.textContent = `Wind: ${data.wind.speed}  M/s` //this `` is the same as the line above ""
         humidityArea.textContent = "Humidity: " + data.main.humidity + " %"
         retrieveOneCall(data.coord.lat, data.coord.lon)
         //fill for main
+        // search history buttons
+        // document.querySelectorAll(".historyButton").forEach(function(item) {
+        //  item.addEventListener("click", function(event) {
+        //     let cityTextContent = event.currentTarget.textContent;
+        //     let yourCity = cityTextContent.split(" ");
+        // retrieveOw(yourCity) 
+        // // console.log(yourCity)
+    
+        // })})
     })
 }
 // console.log(learning)
@@ -135,21 +152,32 @@ function retrieveOneCall(lat, lon) {
         uvArea.textContent = `UV Index: ${data.current.uvi}` // += adds onto the existing textContent instead of overriding it //TODO fix uv so it wont concatinate SOLUTION the += would cancat everytime button was pressed
         weatherImg.innerHTML = data.current.weather[0].icon
 
+        //5day for loop *TODO
+         for (let i = 1; i < 6; i++) {
+            const fiveDayMoment = document.querySelector(`#day${i} .date`);
+            const fiveDayImg = document.querySelector(`#day${i} .weatherImg`);
+            const fiveDayTemp = document.querySelector(`#day${i} .tempFive`);
+            const fiveDayWind = document.querySelector(`#day${i} .windFive`);
+            const fiveDayHumidity = document.querySelector(`#day${i} .humidityFive`);
+            const timeStamp = data.daily[i].dt;
+            const milliSeconds = timeStamp *1000;
+            const dateObject = new Date(milliSeconds).toLocaleDateString("en-UK");
+            var iconCodeFive = data.daily[i].weather[0].icon;
+            console.log(iconCodeFive)
+            let iconUrl = "https://openweathermap.org/img/wn/"+iconCodeFive+"@2x.png";
+            
 
-        // //5day for loop *TODO
-        //  for (let i = 1; i < 6; i++) {
-        //     const fiveDayMoment = document.getElementsByClassName("date");
-        //     const fiveDayImg = document.getElementsByClassName("weatherImg");
-        //     const fiveDayTemp = document.getElementsByClassName("tempFive");
-        //     const fiveDayWind = document.getElementsByClassName("windFive");
-        //     const FiveDayHumidity = document.getElementsByClassName("humidityFive");
-
-        //     fiveDayMoment.textContent = data.name + " (" + timeDate + ")";
-        //     console.log(fiveDayMoment)
-        //     fiveDayTemp.textContent = "Temp: " + data.daily[i].temp.day + " °C"
-        // }
+            fiveDayMoment.textContent = dateObject;
+            console.log(fiveDayMoment)
+            fiveDayTemp.textContent = `Temp: ${data.daily[i].temp.day} °C`
+            fiveDayImg.setAttribute("src", iconUrl)
+            fiveDayWind.textContent = `Wind: ${data.daily[i].wind_speed} M/s`
+            fiveDayHumidity.textContent = `Humidity: ${data.daily[i].humidity} %`
+        }
     })
 }
+
+
 
 
 
@@ -170,7 +198,7 @@ function initAutocomplete() {
         document.getElementById('autocomplete'),
         {
             types: ['(cities)'],
-            componentRestrictions: {'country' : ['AU']},
+            // componentRestrictions: {'country' : ['AU']},
             fields: ['place_id', 'geometry', 'name']
         });
      autocomplete.addListener('place_changed', onPlaceChanged);
