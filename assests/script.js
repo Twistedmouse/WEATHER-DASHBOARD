@@ -1,5 +1,4 @@
 /*GIVEN a weather dashboard with form inputs
-
 WHEN I search for a city 
 THEN I am presented with current and future conditions for that city and that city is added to the search history
 Pseudo:     
@@ -9,7 +8,6 @@ IF city is searched
 THEN the searched city's will appear in the search history section
 IF the searched history city's are clicked in history section 
 THEN display the weather for those city's in the current and future weather section 
-
 WHEN I view current weather conditions for that city *TODO
 THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index
 Pseudo:
@@ -17,8 +15,6 @@ WHEN page loads
 THEN fetch/display my local area weather conditions data 
 WHEN weather is displayed 
 THEN a picture representing weather is displayed 
-
-
 WHEN I view the UV index *TODO
 THEN I am presented with a color that indicates whether the conditions are favorable, moderate, or severe
 Pseudo:
@@ -31,13 +27,11 @@ IF moderate
 THEN colour will be yellow
 IF severe
 THEN colour is red 
-
 WHEN I view future weather conditions for that city *TODO
 THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, the wind speed, and the humidity
 Pseudo:
 WHEN page is loaded 
 THEN fetch the data for the weather over the next 5 days, append data to the 5 day forecast section 
-
 WHEN I click on a city in the search history *TODO
 THEN I am again presented with current and future conditions for that city
 Pseudo:
@@ -45,12 +39,10 @@ WHEN a city is searched
 THEN add city to the search history section 
 WHEN search history city item is clicked
 THEN change the displayed data to the selected area /fetch that city's data
-
 WHEN i click the clear history button - TODO
 THEN clear the local storage
 */
 const timeDate = moment().format('dddd, MMMM Do YYYY');
-
 const city = document.getElementById("currentLocation");
 const tempArea = document.getElementById("temp");
 const windArea = document.getElementById("wind");
@@ -60,6 +52,7 @@ const uvArea = document.getElementById("uv");
 const weatherImg = document.getElementsByClassName("weatherImg");
 let searchStorage = JSON.parse(localStorage.getItem('history')) || [];
 const btn = document.getElementById('searchBtn');
+const mainWeatherImg = document.getElementById('mainWeatherImg');
 
 //btn for the search bar
 btn.addEventListener('click', function (event) {
@@ -113,6 +106,18 @@ document.querySelectorAll(".historyButton").forEach(function(item) {
  
 //make clear btn for the search history 
 
+function pageBuilder(data) {
+    //main builder
+    var iconCode = data.weather[0].icon;
+    let iconUrl = "https://openweathermap.org/img/wn/"+iconCode+"@2x.png";
+    city.textContent = data.name + " (" + timeDate + ")";
+        tempArea.textContent = "Temp: " + data.main.temp + " °C"
+        windArea.textContent = `Wind: ${data.wind.speed}  M/s` //this `` is the same as the line above ""
+        humidityArea.textContent = "Humidity: " + data.main.humidity + " %"
+        mainWeatherImg.setAttribute("src", iconUrl)
+    
+}
+
 //used to find the data for the city you're in
 let learning = "";
 function retrieveOw(yourCity) {
@@ -123,12 +128,13 @@ function retrieveOw(yourCity) {
     .then(function (data){
         console.log(data);
         learning = data;
-        city.textContent = data.name + " (" + timeDate + ")";
-        tempArea.textContent = "Temp: " + data.main.temp + " °C"
-        windArea.textContent = `Wind: ${data.wind.speed}  M/s` //this `` is the same as the line above ""
-        humidityArea.textContent = "Humidity: " + data.main.humidity + " %"
+        pageBuilder(data)
         retrieveOneCall(data.coord.lat, data.coord.lon)
-        //fill for main
+        
+         /*BUG TO ADDRESS WHEN A NEW ITEM IS MADE IN THE SEARCH HISTORY 
+            NEW BUTTON WON'T FETCH ITS DATA UNTIL PAGE IS REFRESHED*/
+
+        //* passing this block into the fetch fixes the new object not fetching bug
         // search history buttons
         // document.querySelectorAll(".historyButton").forEach(function(item) {
         //  item.addEventListener("click", function(event) {
@@ -163,7 +169,6 @@ function retrieveOneCall(lat, lon) {
             const milliSeconds = timeStamp *1000;
             const dateObject = new Date(milliSeconds).toLocaleDateString("en-UK");
             var iconCodeFive = data.daily[i].weather[0].icon;
-            console.log(iconCodeFive)
             let iconUrl = "https://openweathermap.org/img/wn/"+iconCodeFive+"@2x.png";
             
 
@@ -213,6 +218,3 @@ function onPlaceChanged() {
         // document.getElementById('details').innerHTML = place.name;
     }
 }
-
-
-
