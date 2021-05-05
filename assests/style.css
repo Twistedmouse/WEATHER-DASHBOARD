@@ -8,14 +8,16 @@ body{
     left: 0;
     bottom: 0;
     right: 0;
-    background: linear-gradient(15deg,rgb(191, 238, 253), rgb(80, 145, 241), rgb(202, 202, 202), rgb(235, 234, 222), rgb(240, 208, 213), rgba(236, 236, 149, 0.884), rgb(190, 223, 235), rgb(218, 220, 230));
+    background: linear-gradient(15deg,rgb(191, 238, 253), rgb(80, 145, 241), rgb(202, 202, 202), rgb(235, 234, 222),
+     rgb(240, 208, 213), rgba(236, 236, 149, 0.884), rgb(190, 223, 235), rgb(218, 220, 230), rgb(80, 145, 241));
     background-size: 17500px;
     animation: gradBg 30s infinite alternate;
     font-family:monospace;
 }
 
 :root{
-    background: linear-gradient(15deg,rgb(191, 238, 253), rgb(80, 145, 241), rgb(202, 202, 202), rgb(235, 234, 222), rgb(240, 208, 213), rgba(236, 236, 149, 0.884), rgb(190, 223, 235), rgb(218, 220, 230));
+    background: linear-gradient(15deg,rgb(191, 238, 253), rgb(80, 145, 241), rgb(202, 202, 202), rgb(235, 234, 222),
+     rgb(240, 208, 213), rgba(236, 236, 149, 0.884), rgb(190, 223, 235), rgb(218, 220, 230), rgb(80, 145, 241));
     background-size: 17500px;
     animation: gradBg 30s infinite alternate;
 }
@@ -67,7 +69,7 @@ main{
     text-align: center;
     margin-top: 10px;
     height: 280px;
-    border: solid rgba(255, 255, 255, 0.116) 4px;
+    border: solid rgba(255, 255, 255, 0.116) 8px;
     border-style: outset;
     border-radius: 10rem;
     grid-column: 3 / 7;
@@ -75,13 +77,30 @@ main{
     padding: 25px;
     padding-top: 40px;
     background: white;
-    background: linear-gradient(45deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.2))
+    background: linear-gradient(to bottom right, 
+    rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.2));
+    backdrop-filter: blur(10px);
+    z-index: 800;
 }
 #mainContentBox{
     font-size: 16px;
     position: relative;
     bottom: 100px;
     right: 80px;
+}
+#cloudPart0{ /*TODO: make clouds make cloud part divs position 
+    them close and gradeint away from each other to form clouds */
+    background: white;
+    background: linear-gradient(90deg, 
+    rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.2));
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: 30%;
+    left: 65%;
+    z-index: 50;
+    border-radius: 50%;
+    
 }
 
 .forecastBox{
