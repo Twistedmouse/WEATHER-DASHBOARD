@@ -1,3 +1,4 @@
+
 body{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     display: grid;
@@ -8,10 +9,40 @@ body{
     left: 0;
     bottom: 0;
     right: 0;
+    background: linear-gradient(15deg,rgb(191, 238, 253), rgb(80, 145, 241), rgb(202, 202, 202), rgb(235, 234, 222), rgb(240, 208, 213), rgba(236, 236, 149, 0.884), rgb(190, 223, 235), rgb(218, 220, 230));
+    background-size: 16500px;
+    animation: gradBg 30s infinite alternate;
+    font-family:monospace;
+}
+
+:root{
+    background: linear-gradient(15deg,rgb(191, 238, 253), rgb(80, 145, 241), rgb(202, 202, 202), rgb(235, 234, 222), rgb(240, 208, 213), rgba(236, 236, 149, 0.884), rgb(190, 223, 235), rgb(218, 220, 230));
+    background-size: 16500px;
+    animation: gradBg 30s infinite alternate;
+}
+
+@keyframes gradBg{
+    0%{
+        background-position: left;
+    }
+    100%{
+        background-position: right;
+    }
 }
 
 h1{
-    grid-column: 3 / 8;
+    grid-column: 1 / 9;
+    background: linear-gradient(45deg, rgba(86, 10, 209, 0.568) 5%, rgba(255, 255, 255) 10%, rgba(87, 10, 209, 0.529)15%,  rgba(255, 166, 0, 0.808) 100%);
+    width: 100%;
+    height: 65px;
+    padding-top: 15px;
+    margin-top: 0px;
+    text-align: center;
+    font-size: 50px;
+    border-bottom: 2px;
+    border-bottom-style: groove;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 100px;
 }
 
 form{
@@ -58,5 +89,21 @@ section{
 
 button{
     width: 148px;
+}
+
+.weatherImg{
+    border-width: 1px;
+    background-color: rgb(166, 189, 214);
+    border-radius: 1000px;
+    width: 80px;
+    height: 80px;
+}
+
+#mainWeatherImg{
+    border-width: 1px;
+    background-color: rgb(166, 189, 214);
+    border-radius: 1000px;
+    width: 80px;
+    height: 80px;
 }
 
