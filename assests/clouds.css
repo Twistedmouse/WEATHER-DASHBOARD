@@ -95,7 +95,7 @@
     width: 150px;
     height: 150px;
     position: absolute;
-    top: 48%;
+    top: 52%;
     left: 25%;
     z-index: 50;
     border-radius: 50%;
@@ -109,7 +109,7 @@
     width: 150px;
     height: 150px;
     position: absolute;
-    top: 38%;
+    top: 43%;
     left: 21%;
     z-index: 50;
     border-radius: 50%;
@@ -118,14 +118,86 @@
 
 #cloudPart5{ 
     background: white;
-    background: linear-gradient(85deg, 
-    rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.2));
+    background: linear-gradient(to top right, 
+    rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5));
     width: 150px;
     height: 150px;
     position: absolute;
-    top: 48%;
+    top: 52%;
     left: 16%;
     z-index: 50;
     border-radius: 50%;
     animation: move2 6s  reverse;
+}
+
+/* add lil circles around the page that extreemly slowing change size lets call them bubbles  */
+#bubble0{
+    background: white;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 27%;
+    left: 36%;
+    animation: pulse 8s infinite alternate;
+}
+#bubble1{
+    background: white;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 47%;
+    left: 70%;
+    animation: pulse 8s infinite alternate;
+}
+#bubble2{
+    background: white;
+    background: radial-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0));
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 72%;
+    left: 90%;
+    animation: pulse 8s infinite alternate;
+}
+
+#bubble3{
+    background: white;
+    background: radial-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0));
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 30%;
+    left: 95%;
+    animation: pulse 8s infinite alternate;
+}
+
+#bubble4{
+    background: white;
+    background: radial-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0));
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 36%;
+    left: 15%;
+    animation: pulse 8s infinite alternate;
+}
+
+@keyframes pulse {
+    0%{
+        width: 30px;
+        height: 30px;
+    }
+    50%{
+        width: 15px;
+        height: 15px;
+    }
+    100%{
+        width: 0px;
+        height: 0px;
+    }
 }
