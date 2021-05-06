@@ -133,6 +133,7 @@
 /* add lil circles around the page that extreemly slowing change size lets call them bubbles  */
 #bubble0{
     background: white;
+    background: radial-gradient(rgba(255, 255, 255, 0.767), rgba(255, 255, 255, 0.753)); 
     border-radius: 50%;
     width: 30px;
     height: 30px;
@@ -143,6 +144,7 @@
 }
 #bubble1{
     background: white;
+    background: radial-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75));
     border-radius: 50%;
     width: 30px;
     height: 30px;
@@ -185,6 +187,7 @@
     top: 36%;
     left: 15%;
     animation: pulse 3s infinite alternate;
+    
 }
 
 @keyframes pulse {
