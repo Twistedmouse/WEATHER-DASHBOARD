@@ -112,7 +112,6 @@ main{
 
 
 .forecastBox{
-    border: dashed black 2px;
     grid-column: 3 / 8;
     grid-row: 4 / 6;
     padding: 10px;
