@@ -139,7 +139,7 @@
     position: absolute;
     top: 27%;
     left: 36%;
-    animation: pulse 8s infinite alternate;
+    animation: pulse 6s infinite alternate;
 }
 #bubble1{
     background: white;
@@ -160,7 +160,7 @@
     position: absolute;
     top: 72%;
     left: 90%;
-    animation: pulse 8s infinite alternate;
+    animation: pulse 3s infinite alternate;
 }
 
 #bubble3{
@@ -172,7 +172,7 @@
     position: absolute;
     top: 30%;
     left: 95%;
-    animation: pulse 8s infinite alternate;
+    animation: pulse 7s infinite alternate;
 }
 
 #bubble4{
@@ -184,7 +184,7 @@
     position: absolute;
     top: 36%;
     left: 15%;
-    animation: pulse 8s infinite alternate;
+    animation: pulse 3s infinite alternate;
 }
 
 @keyframes pulse {
