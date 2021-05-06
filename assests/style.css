@@ -88,20 +88,6 @@ main{
     bottom: 100px;
     right: 80px;
 }
-#cloudPart0{ /*TODO: make clouds make cloud part divs position 
-    them close and gradeint away from each other to form clouds */
-    background: white;
-    background: linear-gradient(90deg, 
-    rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.2));
-    width: 150px;
-    height: 150px;
-    position: absolute;
-    top: 30%;
-    left: 65%;
-    z-index: 50;
-    border-radius: 50%;
-    
-}
 
 .forecastBox{
     border: dashed black 2px;

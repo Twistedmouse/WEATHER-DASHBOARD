@@ -1,0 +1,131 @@
+/*TODO: make clouds make cloud part divs position 
+    them close and gradeint away from each other to form clouds 
+    keep cloudPart0 where it is and build off it HAVE FUN xD 
+    try make with three parts each or 5 parts each which 
+    ever looks better
+    
+    also maybe try the glass panel effect on the buttons or just the 
+    clear glass try both!*/
+
+    /* right cloud */
+#cloudPart0{ 
+    background: white;
+    background: linear-gradient(75deg, 
+    rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.0));
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: 23%;
+    left: 68%;
+    z-index: 50;
+    border-radius: 50%;
+    animation: move 10s  ;
+    
+}
+
+#cloudPart1{ 
+    background: white;
+    background: linear-gradient(360deg, 
+    rgba(255, 255, 255, 0.0), rgba(255, 255, 255, 0.7));
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: 15%;
+    left: 73%;
+    z-index: 50;
+    border-radius: 50%;
+    animation: move 10s  ;
+}
+
+
+#cloudPart2{ 
+    background: white;
+    background: linear-gradient(to right bottom, 
+    rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5));
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: 25%;
+    left: 78%;
+    z-index: 50;
+    border-radius: 50%;
+    animation: move 10s  ;
+}
+
+/* @keyframes cloudTest {  
+    0%{
+        width: 150px;
+        height: 150px;
+    }
+    50%{
+        width: 100px;
+        height: 100px;
+    }
+} */
+@keyframes move {
+    from{
+        left: 0%;
+        width: 80px;
+        height: 80px;
+    }
+    to{
+        right: 100%;
+        width: 150px;
+        height: 150px;
+    }
+}
+@keyframes move2 {
+    from{
+        right: 0%;
+        width: 150px;
+        height: 150px;
+    }
+    to{
+        left: 100%;
+        width: 80px;
+        height: 80px; 
+    }
+}
+
+/* left cloud */
+#cloudPart3{ 
+    background: white;
+    background: linear-gradient(360deg, 
+    rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: 48%;
+    left: 25%;
+    z-index: 50;
+    border-radius: 50%;
+    animation: move2 6s  reverse;
+}
+
+#cloudPart4{ 
+    background: white;
+    background: linear-gradient(185deg, 
+    rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: 38%;
+    left: 21%;
+    z-index: 50;
+    border-radius: 50%;
+    animation: move2 6s  reverse;
+}
+
+#cloudPart5{ 
+    background: white;
+    background: linear-gradient(85deg, 
+    rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.2));
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: 48%;
+    left: 16%;
+    z-index: 50;
+    border-radius: 50%;
+    animation: move2 6s  reverse;
+}
