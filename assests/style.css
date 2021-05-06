@@ -42,7 +42,7 @@ h1{
     font-size: 50px;
     border-bottom: 2px;
     border-bottom-style: groove;
-    border-bottom-left-radius: 8px;
+    /* border-bottom-left-radius: 8px; */
     border-bottom-right-radius: 100px;
     color:rgb(0, 0, 0);
     text-shadow: 1.5px 1px 10px rgb(212, 212, 212);
@@ -59,10 +59,20 @@ h4{
 }
 
 form{
-    
+    width: 270px;
+    border-bottom-right-radius: 50%;
+    border: outset  2px;
+    background: linear-gradient(to left bottom, 
+    rgba(80, 10, 209, 0.45) 5%, white 17%, rgba(204, 83, 241, 0.2))100%;
+    backdrop-filter: blur(10px);
+    z-index: 800;
+    margin-top: -18px;
+    border-top: 0px;
 }
 
 #searchResults{
+    width: 75%;
+    height: 100%;
     border: outset  2px;
     border-radius: 2px;
     grid-column: 1 / 2;
@@ -85,7 +95,6 @@ main{
     grid-row: 2 / 3;
     padding: 25px;
     padding-top: 40px;
-    background: white;
     background: linear-gradient(to bottom right, 
     rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.2));
     backdrop-filter: blur(10px);
