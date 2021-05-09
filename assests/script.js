@@ -104,6 +104,15 @@ document.querySelectorAll(".historyButton").forEach(function(item) {
         // console.log(yourCity)
     
 })})
+
+//clear history button
+// const clear = document.querySelectorAll("#clear");
+// clear.addEventListener("click", function (event) {
+//     localStorage.clear();
+//     setTimeout("location.reload(true);", 100)
+//   })
+
+
  //TODO make only 6 search results save at A time 
 //make clear btn for the search history 
 //try a refeash function to fix the history load bug 
@@ -186,18 +195,18 @@ function retrieveOneCall(lat, lon) {
 }
 
 function uvColor() {
-    let uvIndex = getElementById("uv")
+    uvArea = 0;
     // change class to red uv >= 6 
 if (uvArea >= 6) {
-    $(uvIndex).addClass("uvGreen")
+    $(uvArea).addClass("uvGreen")
 }
     // class to yellow  uv <= 5
  if (uvArea <= 5) {
-        $(uvIndex).addClass("uvYellow")
+        $(uvArea).addClass("uvYellow")
  }
     // class of green uv <=2
  if (uvArea <= 2) {
-        $(uvIndex).addClass("uvRed")
+        $(uvArea).addClass("uvRed")
 }
   }
   uvColor()
