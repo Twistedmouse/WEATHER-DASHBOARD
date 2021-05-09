@@ -8,7 +8,7 @@ IF city is searched
 THEN the searched city's will appear in the search history section
 IF the searched history city's are clicked in history section 
 THEN display the weather for those city's in the current and future weather section 
-WHEN I view current weather conditions for that city *TODO
+WHEN I view current weather conditions for that city 
 THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index
 Pseudo:
 WHEN page loads 
@@ -27,12 +27,12 @@ IF moderate
 THEN colour will be yellow
 IF severe
 THEN colour is red 
-WHEN I view future weather conditions for that city *TODO
+WHEN I view future weather conditions for that city 
 THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, the wind speed, and the humidity
 Pseudo:
 WHEN page is loaded 
 THEN fetch the data for the weather over the next 5 days, append data to the 5 day forecast section 
-WHEN I click on a city in the search history *TODO
+WHEN I click on a city in the search history 
 THEN I am again presented with current and future conditions for that city
 Pseudo:
 WHEN a city is searched 
@@ -71,7 +71,7 @@ function searchHistBtn(input) {
         createBtn.setAttribute("class", "historyButton")
         createBtn.textContent = input;
         searchHist.appendChild(createBtn)
-}//TODO run debugger and fine out why theres ab-normallity 
+}//TODO fix bug where you have to refreah the page to make new searchHistory buttons load try somehow setTimeout("location.reload(true);", 100)
 
 //function insert text into searchResults field
 function searchHistoryField(event) { 
@@ -91,7 +91,7 @@ function searchHistoryField(event) {
         // console.log(historyBtns)
         }
         
-    }
+    } 
 }
  searchHistoryField()
 // search history buttons
@@ -100,11 +100,14 @@ document.querySelectorAll(".historyButton").forEach(function(item) {
         let cityTextContent = event.currentTarget.textContent;
         let yourCity = cityTextContent.split(" ");
         retrieveOw(yourCity) 
+        
         // console.log(yourCity)
     
 })})
- 
+ //TODO make only 6 search results save at A time 
 //make clear btn for the search history 
+//try a refeash function to fix the history load bug 
+// make auto load function to show last search result or current location. 
 
 function pageBuilder(data) {
     //main builder
@@ -182,7 +185,22 @@ function retrieveOneCall(lat, lon) {
     })
 }
 
-
+function uvColor() {
+    let uvIndex = getElementById("uv")
+    // change class to red uv >= 6 
+if (uvArea >= 6) {
+    $(uvIndex).addClass("uvGreen")
+}
+    // class to yellow  uv <= 5
+ if (uvArea <= 5) {
+        $(uvIndex).addClass("uvYellow")
+ }
+    // class of green uv <=2
+ if (uvArea <= 2) {
+        $(uvIndex).addClass("uvRed")
+}
+  }
+  uvColor()
 
 
 
