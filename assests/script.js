@@ -106,11 +106,6 @@ document.querySelectorAll(".historyButton").forEach(function(item) {
 })})
 
 //clear history button
-// const clear = document.querySelectorAll("#clear");
-// clear.addEventListener("click", function (event) {
-//     localStorage.clear();
-//     setTimeout("location.reload(true);", 100)
-//   })
 $('#clear').on('click', function () {
     window.localStorage.clear();
     searchStorage = [];
