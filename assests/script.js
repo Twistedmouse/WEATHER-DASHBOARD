@@ -113,10 +113,11 @@ document.querySelectorAll(".historyButton").forEach(function(item) {
 //   })
 
 
- //TODO make only 6 search results save at A time 
-//make clear btn for the search history 
-//try a refeash function to fix the history load bug 
-// make auto load function to show last search result or current location. 
+ //TODO: make only 6 search results save at A time 
+//TODO: make clear btn for the search history 
+//TODO: try a refeash function to fix the history load bug 
+//TODO: make auto load function to show last search result or current location.
+//TODO: make responsive 
 
 function pageBuilder(data) {
     //main builder
@@ -169,7 +170,21 @@ function retrieveOneCall(lat, lon) {
         console.log("OneCall=", data)
         uvArea.textContent = `UV Index: ${data.current.uvi}` // += adds onto the existing textContent instead of overriding it //TODO fix uv so it wont concatinate SOLUTION the += would cancat everytime button was pressed
         weatherImg.innerHTML = data.current.weather[0].icon
-
+        if (data.current.uvi >= 6) {
+            $(uvArea).removeClass("uvRed")
+            $(uvArea).removeClass("uvYellow")
+            $(uvArea).addClass("uvGreen")
+        }
+            // class to yellow  uv <= 5
+         if (data.current.uvi <= 5) {
+            $(uvArea).removeClass("uvRed")
+            $(uvArea).addClass("uvYellow")
+         }
+            // class of green uv <=2
+         if (data.current.uvi <= 2) {
+            $(uvArea).removeClass("uvYellow")
+            $(uvArea).addClass("uvRed")
+        }
         //5day for loop *TODO
          for (let i = 1; i < 6; i++) {
             const fiveDayMoment = document.querySelector(`#day${i} .date`);
@@ -194,27 +209,6 @@ function retrieveOneCall(lat, lon) {
     })
 }
 
-function uvColor() {
-    uvArea = 0;
-    // change class to red uv >= 6 
-if (uvArea >= 6) {
-    $(uvArea).addClass("uvGreen")
-}
-    // class to yellow  uv <= 5
- if (uvArea <= 5) {
-        $(uvArea).addClass("uvYellow")
- }
-    // class of green uv <=2
- if (uvArea <= 2) {
-        $(uvArea).addClass("uvRed")
-}
-  }
-  uvColor()
-
-
-
-//function for change uv index colour a bunch of if else statements that change the class 
-//which has a css property with different background colors                                *TODO
 
 
 

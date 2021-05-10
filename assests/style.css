@@ -152,13 +152,26 @@ main{
 }
 
 .uvGreen{
-    background: green;
+    background: rgba(76, 250, 76, 0.5);
+    width: 20%;
+    backdrop-filter: blur(10px);
+    margin-left: 40%;
+    border-radius: 20%;
 }
 .uvYellow{
-    background: yellow;
+    background: rgba(255, 255, 0, 0.5);
+    width: 20%;
+    backdrop-filter: blur(10px);
+    margin-left: 40%;
+    border-radius: 20%;
+    
 }
 .uvRed{
-    background: red;
+    background: rgba(255, 0, 0, 0.5);
+    width: 20%;
+    backdrop-filter: blur(10px);
+    margin-left: 40%;
+    border-radius: 20%;
 }
 
 
