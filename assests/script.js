@@ -15,7 +15,7 @@ WHEN page loads
 THEN fetch/display my local area weather conditions data 
 WHEN weather is displayed 
 THEN a picture representing weather is displayed 
-WHEN I view the UV index *TODO
+WHEN I view the UV index 
 THEN I am presented with a color that indicates whether the conditions are favorable, moderate, or severe
 Pseudo:
 WHEN uv data is fetched
@@ -111,13 +111,18 @@ document.querySelectorAll(".historyButton").forEach(function(item) {
 //     localStorage.clear();
 //     setTimeout("location.reload(true);", 100)
 //   })
+$('#clear').on('click', function () {
+    window.localStorage.clear();
+    searchStorage = [];
+    setTimeout("location.reload(true);", 500)
+});
 
 
- //TODO: make only 6 search results save at A time 
-//TODO: make clear btn for the search history 
-//TODO: try a refeash function to fix the history load bug 
-//TODO: make auto load function to show last search result or current location.
-//TODO: make responsive 
+     //TODO: make only 6 search results save at A time 
+    //TODO: make clear btn for the search history 
+   //TODO: try a refresh function to fix the history load bug 
+  //TODO: make auto load function to show last search result or current location.
+ //TODO: make responsive 
 
 function pageBuilder(data) {
     //main builder
