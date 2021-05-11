@@ -9,10 +9,12 @@ app to fetch the local weather
 
 <p>Disclaimer: When button is added too to search history, page must be refreshed to use the button a second time. Only the new button though. I know its to do with the way im fetching so I have a few plans to try to fix this when i have more time.  
 </p>
+
 ---
+
 <br>
 
-## The task at hand:
+## THE TASK AT HAND:
 
 Build a weather app that can predict the weather for the current day and the next 5 following days, with cities searched saved into a search history section. 
 
@@ -81,7 +83,13 @@ moving gradient as my background, and large rounded shapes with a blur filter fo
 
 <p>I have also added little bubbles around the page, that pulse in and out of the background to create a bit more atmosphere.  </p>
 
-!
+![](assests/screenshots/bubble.gif)
+
+<br>
+
+<p>And by using the google maps api I have an autofill / predictive text feature in my search bar.</p>
+
+![](assests/screenshots/predictive.png)
 
 <br>
 
@@ -93,7 +101,9 @@ moving gradient as my background, and large rounded shapes with a blur filter fo
 
 <p>Here is a demo of how the app should function.</p>
 
+![](assests/screenshots/weatherDemo.gif)
 
+<p> </p>
 
 <br>
 
@@ -101,14 +111,11 @@ moving gradient as my background, and large rounded shapes with a blur filter fo
 
 <br>
 
-## future plans:
-clear search text when searched
-TODO: make only 6 search results save at A time 
-TODO: make clear btn for the search history 
-TODO: try a refresh function to fix the history load bug 
-TODO: make auto load function to show last search result or current location.
-TODO: make responsive 
-todo location loads on page load 
+## FUTURE PLANS:
+
+<p>When I get more time in the future I would like to fix the issue with search history, where you need to 
+refresh the page to review the latest button. I believe I just need to rewrite my fetch function, but this will do for first release. Or I could create a refresh page function, providing I develope a load last in local storage function. I would also like to make only 6 or so items be able to be stored in the search history.   </p>
+<p> I would like to add when the page first loads it either shows the last searched location from local storage or users local area. Finally i would also like to make the page more responsive on other devices, such as changing the grid for the 5 day report and removing the footer bar on smaller devices. </p>
 
 <br>
 
